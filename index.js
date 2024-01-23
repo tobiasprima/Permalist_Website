@@ -20,11 +20,18 @@ app.use(express.static("public"));
 
 let items = [];
 
-app.get("/", (req, res) => {
-  res.render("index.ejs", {
-    listTitle: "Today",
-    listItems: items,
-  });
+app.get("/", async (req, res) => {
+  try{
+    const result = await db.query("SELECT * FROM items ORDER BY id ASC");
+    items = result.rows;
+  
+    res.render("index.ejs", {
+      listTitle: "Today",
+      listItems: items,
+    });
+  } catch(err){
+    console.log(err);
+  }
 });
 
 app.post("/add", (req, res) => {
