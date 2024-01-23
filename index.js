@@ -48,7 +48,7 @@ app.post("/edit", async(req, res) => {
   const selectedItem = req.body.updatedItemTitle;
   const selectedItemId = req.body.updatedItemId;
   try{
-    await db.query("UPDATE items SET title = ($1) WHERE id == $2",
+    await db.query("UPDATE items SET title = ($1) WHERE id = $2",
     [selectedItem, selectedItemId],
     );
     res.redirect("/")
