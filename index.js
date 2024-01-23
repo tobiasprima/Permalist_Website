@@ -44,7 +44,18 @@ app.post("/add", async (req, res) => {
   }
 });
 
-app.post("/edit", (req, res) => {});
+app.post("/edit", async(req, res) => {
+  const selectedItem = req.body.updatedItemTitle;
+  const selectedItemId = req.body.updatedItemId;
+  try{
+    const result = await db.query("UPDATE items SET title = ($1) WHERE id == $2",
+    [selectedItem, selectedItemId],
+    );
+    res.redirect("/")
+  } catch (err){
+    console.log(err);
+  }
+});
 
 app.post("/delete", (req, res) => {});
 
