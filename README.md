@@ -1,9 +1,9 @@
-#Permalist
+# Permalist
 Permanent To Do List
 
 A Project From The complete 2024 Web Development Bootcamp by Dr. Angela Yu on Udemy
 
-##Quick Start
+## Quick Start
 
 1.Clone
 ```
@@ -23,7 +23,7 @@ npm install
 code .
 ```
 
-##To Start Server
+## To Start Server
 Make sure you have npm and nodemon installed.
 ```
 nodemon index.js
